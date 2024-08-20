@@ -1,13 +1,8 @@
-import express,{json, Request,Response} from "express"
+import express,{ Request,Response} from "express";
+import creatApp from "./app";
 
-const app = express()
+const app  = creatApp();
 const port = process.env.PORT
-
-app.use(json())
-
-app.get("/",(request:Request,reponse:Response)=>{
-    reponse.status(200).json({name:"Beckham"})
-})
 
 app.listen(port,()=>{
     console.log(`🔥 Server running at port htpp://localhost:${port}`)
