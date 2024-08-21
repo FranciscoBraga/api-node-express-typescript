@@ -1,3 +1,4 @@
+import { json } from "express"
 import { PlayerMode } from "../model/player-model"
 
 const dataBase:PlayerMode[] = [
@@ -64,12 +65,15 @@ const dataBase:PlayerMode[] = [
     ]
   
 
-
-
 export const findAllPlayers = async(): Promise<PlayerMode[]>=>{
     return dataBase
 }
 
 export const findPlayersById = async(id:number): Promise<PlayerMode | undefined>=>{
     return dataBase.find(player => player.id === id)    
+}
+
+export const insertPlayer = async(players:PlayerMode):Promise<PlayerMode[]> =>{
+    dataBase.push(players)
+  return  dataBase
 }
