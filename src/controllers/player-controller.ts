@@ -17,11 +17,20 @@ export const getPlayerByID = async(request:Request, reponse:Response)=>{
     reponse.status(httpResponse.status).json(httpResponse.body)
 }
 
-export const postPlayers = async(request:Request,reponse:Response)=>{
+export const postPlayer = async(request:Request,reponse:Response)=>{
 
     const body = request.body 
 
     const httpResponse = await Service.postCreatePlayersService(body)
+
+    reponse.status(httpResponse.status).json(httpResponse.body)
+}
+
+export const deletePlayer = async (request:Request,reponse:Response)=>{
+   
+     const id = parseInt(request.params.id)
+      
+     const httpResponse = await Service.deletePlayerService(id)
 
     reponse.status(httpResponse.status).json(httpResponse.body)
 }

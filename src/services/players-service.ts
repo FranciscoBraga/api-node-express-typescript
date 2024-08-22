@@ -31,3 +31,11 @@ export const postCreatePlayersService = async(players:PlayerMode)=>{
 
 }
 
+export const  deletePlayerService = async (id: number)=> {
+    
+    const data = await PlayersRepository.deletePlayer(id)
+
+    return (data) ? ok(data) : noContent()
+
+}
+

@@ -66,14 +66,31 @@ const dataBase:PlayerMode[] = [
   
 
 export const findAllPlayers = async(): Promise<PlayerMode[]>=>{
+
     return dataBase
 }
 
-export const findPlayersById = async(id:number): Promise<PlayerMode | undefined>=>{
+export const findPlayersById = async (id:number): Promise<PlayerMode | undefined>=>{
+
     return dataBase.find(player => player.id === id)    
 }
 
-export const insertPlayer = async(players:PlayerMode):Promise<PlayerMode[]> =>{
-    dataBase.push(players)
-  return  dataBase
+export const insertPlayer = async (players:PlayerMode):Promise<PlayerMode[]> =>{
+
+     dataBase.push(players)
+
+    return  dataBase
+}
+
+export const deletePlayer = async (id: number): Promise<PlayerMode[] | null>=> {
+
+    const index = dataBase.findIndex(player => player.id === id) 
+
+    if(index != -1){
+
+      dataBase.splice(index,1)
+
+    }
+
+  return (index != -1) ? dataBase : null 
 }
