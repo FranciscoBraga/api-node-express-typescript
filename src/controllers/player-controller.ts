@@ -1,4 +1,4 @@
-import { request, Request, Response } from "express"
+import { Request, Response } from "express"
 import * as Service from "../services/players-service"
 
 export const getPlayers = async (request:Request,reponse:Response)=>{
@@ -35,3 +35,13 @@ export const deletePlayer = async (request:Request,reponse:Response)=>{
     reponse.status(httpResponse.status).json(httpResponse.body)
 }
 
+export const patchStatistics = async (request:Request,reponse:Response)=>{
+   
+    const id = parseInt(request.params.id)
+    
+    const bodyValue  = request.body    
+     
+    const httpResponse = await Service.patchPlayerServive(id,bodyValue)
+
+   reponse.status(httpResponse.status).json(httpResponse.body)
+}

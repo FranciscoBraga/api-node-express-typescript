@@ -1,5 +1,6 @@
 import { json } from "express"
 import { PlayerMode } from "../model/player-model"
+import { StatisticModel } from "../model/statistics-model"
 
 const dataBase:PlayerMode[] = [
     {
@@ -93,4 +94,17 @@ export const deletePlayer = async (id: number): Promise<PlayerMode[] | null>=> {
     }
 
   return (index != -1) ? dataBase : null 
+}
+
+
+export const updatePlayer = async(id:number,statistics:StatisticModel):Promise<PlayerMode > =>{
+
+  const index = dataBase.findIndex((player) => player.id === id)
+
+  if(index != -1){
+      dataBase[index].statistics = statistics
+  }
+  console.log(dataBase[index])
+  return  dataBase[index]  
+
 }
