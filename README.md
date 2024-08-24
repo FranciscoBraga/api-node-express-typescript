@@ -18,7 +18,7 @@ A arquitetura da aplicação é composta pelas seguintes camadas:
 
 ### Diagrama de Arquitetura
 
-![Arquitetura do Projeto](arquitetura%20do%20projeto.png)
+![Arquitetura do Projeto](/docs/arquitetura%20do%20projeto.png)
 
 ## Instalação
 
